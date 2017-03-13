@@ -48,7 +48,18 @@ $kill PID
 
 ![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/1.PNG)
 
-## 2.实验操作过程
+## 2.实验操作过程&两种情况的展示
+
+* 杀死父进程，子进程一并终止
+
+查看进程：
+
+![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/7.PNG)
+
+kill了父进程（电脑同时黑屏了...）：
+![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/8.PNG)
+
+* 杀死父进程，子进程保留，同时转移至init托管——孤儿进程
 
 [创建父进程和子进程](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/src/CreateChildExe.c)
 
@@ -75,7 +86,31 @@ int main(){
 ![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/3.PNG)
 
 杀掉父进程：
+
 ![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/4.PNG)
+
 ![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/5.PNG)
 
-## 3.结论
+若希望改进使得父进程结束后，子进程自动结束：
+
+> prctl(PR_SET_PDEATHSIG,SIGHUP);
+
+```c
+#include <signal.h>
+#include <sys/prctl.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(){
+    printf("Father is created\n\n");
+
+    fork();//create a child process
+
+    prctl(PR_SET_PDEATHSIG,SIGHUP);
+
+    printf("Child is created\n\n");
+
+    int i; scanf("%d",&i);   //prevent exiting
+    return 0;
+}
+```
