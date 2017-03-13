@@ -46,6 +46,8 @@ $kill PID
 
 一般来讲, 我们编写1个普通的c程序, 运行这个程序直到程序结束, 系统只会分配1个pid给这个程序, 也就就说, 系统里只会有一条关于这个程序的进程。 但是当执行Fork()函数之后，系统则会包含多条关于这个程序的进程。Fork()函数的作用是复制当前进程(包括进程在内存里的堆栈数据)为1个新的镜像. 然后这个新的镜像和旧的进程同时执行下去. 相当于本来1个进程, 遇到fork() 函数后就分叉成两个进程同时执行了. 而且这两个进程是互不影响
 
+![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/1.PNG)
+
 ## 2.实验操作过程
 
 [创建父进程和子进程](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/src/CreateChildExe.c)
@@ -66,6 +68,14 @@ int main(){
 }
 ```
 
+![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/2.PNG)
+
 运行后系统的进程：
 
-![alt text]()
+![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/3.PNG)
+
+杀掉父进程：
+![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/4.PNG)
+![alt text](https://github.com/lisaljy/UESTC-S17/blob/master/OS/lab1/pic/5.PNG)
+
+## 3.结论
