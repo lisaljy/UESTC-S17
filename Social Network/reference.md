@@ -29,3 +29,11 @@ The present study provides the first evidence that personality can be reliably p
 用户网络解释社会心理阶层？  
 
 用户发微博时的定位  
+
+### TODO  
+1.社交网络与经济网络的内在因素联系解释  
+2.社交网络与经济网络的相关性计算完善  
+**3.调研整理地域性经济指标，现成数据最佳**  
+4.思考互相影响（动态；时间序列）和现象级相关性的区别  
+5.思考阶层问题？如何从社交网络中定量分离阶层？关注与被关注的问题  
+**6.帮丹姐下载Solving the cold-start problem in recommender systems with social tags**
